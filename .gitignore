@@ -1,0 +1,32 @@
+# dependencies and build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets: SMTP credentials live here, never commit
+.env
+.env.*
+!.env.example
+
+# old one-off SMTP test scripts (contain credentials)
+test*.cjs
+test*.js
+write_env.cjs
+write_env.js
+
+# deploy archives
+deploy.tar.gz
+deploy.zip
+*.tar.gz
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# local verification captures, browser profiles, and runtime logs
+.phase2-verification/
+*.log

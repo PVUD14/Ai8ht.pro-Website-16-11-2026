@@ -1,0 +1,99 @@
+import { pageMetadata } from "@/lib/seo";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { ContactCta } from "@/components/ContactCta";
+import { Reveal } from "@/components/Reveal";
+import { oneProduct, trustItems } from "@/data/site";
+
+export const metadata = pageMetadata({
+  title: "ONE Platform",
+  description:
+    "ONE by AI8HT is the campus-to-career workspace where students, institutions and employers finally work in one place.",
+  path: "/one"
+});
+
+export default function OnePage() {
+  return (
+    <>
+      <section className="home-hero section">
+        <div className="hero-copy">
+          <Reveal>
+            <p className="eyebrow">Product</p>
+            <h1>
+              {oneProduct.name} — {oneProduct.tagline}
+            </h1>
+            <p>{oneProduct.summary}</p>
+            <div className="hero-actions">
+              <a
+                className="button primary"
+                href={oneProduct.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Launch ONE
+                <ExternalLink size={18} />
+              </a>
+              <Link className="button ghost" href="/contact">
+                Talk to us
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {oneProduct.personas.map((persona, index) => (
+        <section
+          key={persona.key}
+          className={index % 2 === 1 ? "section soft-band" : "section"}
+        >
+          <div className="one-persona">
+            <Reveal>
+              <div className="one-persona-copy">
+                <p className="eyebrow">{persona.title}</p>
+                <ul className="one-points">
+                  {persona.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="one-shot">
+                <Image
+                  src={persona.image}
+                  alt={`ONE ${persona.title} dashboard preview`}
+                  width={1600}
+                  height={1000}
+                />
+                <p className="one-shot-note">Product preview</p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ))}
+
+      <section className="section">
+        <Reveal>
+          <div className="section-heading centered">
+            <p className="eyebrow">Trust &amp; compliance</p>
+            <h2>Enterprise-grade security posture, verified.</h2>
+          </div>
+        </Reveal>
+        <div className="pillar-grid">
+          {trustItems.map((item, index) => (
+            <Reveal key={item.title} delay={index * 70}>
+              <article className="pillar-card">
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <ContactCta />
+    </>
+  );
+}

@@ -1,0 +1,31 @@
+{
+  "name": "ai8ht-brochure-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node --test tests/site-data.test.js"
+  },
+  "dependencies": {
+    "framer-motion": "^12.42.2",
+    "lucide-react": "latest",
+    "next": "latest",
+    "nodemailer": "^9.0.3",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
+  }
+}
