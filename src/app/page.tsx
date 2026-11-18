@@ -27,7 +27,7 @@ export default function HomePage() {
       <section className="section soft-band" id="products" aria-label="AI8HT products">
         <Reveal>
           <div className="section-heading centered">
-            <p className="eyebrow products-eyebrow">AI8HT tools</p><p>Explore explains the tool. Launch opens its separate website.</p>
+            <p className="eyebrow products-eyebrow">AI8HT products</p><p>Explore explains the product. Launch opens its separate website.</p>
           </div>
         </Reveal>
         <div className="one-persona one-spotlight glass-panel">
@@ -56,12 +56,14 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={100}>
             <div className="one-shot">
+              <div className="dashboard-image-frame" data-dashboard-frame="true">
               <Image
                 src="/assets/one/one-student.png"
                 alt="ONE student dashboard preview"
                 width={1600}
                 height={1000}
               />
+              </div>
               <p className="one-shot-note">Product preview</p>
             </div>
           </Reveal>

@@ -1,4 +1,5 @@
 import { ArrowUpRight, Check, LayoutDashboard, ListTodo, LockKeyhole, Plus, Search, Settings2, Ticket } from "lucide-react";
+import { PreviewFrame } from "./PreviewFrame";
 import styles from "./TicketXPreview.module.css";
 
 export type TicketXPreviewKind = "login" | "dashboard" | "create" | "queue" | "detail" | "admin";
@@ -17,6 +18,7 @@ const sampleTickets = [
 export function TicketXPreview({ kind = "dashboard", compact = false }: { kind?: TicketXPreviewKind; compact?: boolean }) {
   return (
     <figure data-product-demo="true" className={`${styles.preview} ${compact ? styles.compact : ""}`}>
+      <PreviewFrame contentWidth={720}>
       <div className={styles.frame} role="img" aria-label={`Illustrative TicketX ${labels[kind].toLowerCase()} with example information; not an actual application screenshot.`}>
         <div aria-hidden="true">
           <div className={styles.topbar}>
@@ -79,6 +81,7 @@ export function TicketXPreview({ kind = "dashboard", compact = false }: { kind?:
           </div>
         </div>
       </div>
+      </PreviewFrame>
       <figcaption>Illustrative Preview · Example information</figcaption>
     </figure>
   );

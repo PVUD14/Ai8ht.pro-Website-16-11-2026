@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
-import { motion } from "framer-motion";
 
 type Capability = {
   number: string;
@@ -29,16 +27,11 @@ type Outcome = {
 export function CapabilityCard({ item, delay = 0, className = "" }: { item: Capability; delay?: number; className?: string }) {
   return (
     <Reveal delay={delay} className="h-full">
-      <motion.article 
-        className={`capability-card ${className}`}
-        whileHover={{ y: -8, boxShadow: "0 24px 70px rgba(30, 167, 255, 0.15)", borderColor: "rgba(30, 167, 255, 0.4)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-
+      <article className={`capability-card ${className}`}>
         <span>{item.number}</span>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
-      </motion.article>
+      </article>
     </Reveal>
   );
 }
@@ -46,18 +39,13 @@ export function CapabilityCard({ item, delay = 0, className = "" }: { item: Capa
 export function ServiceCard({ item, delay = 0 }: { item: Service; delay?: number }) {
   return (
     <Reveal delay={delay}>
-      <motion.article 
-        className="service-card"
-        whileHover={{ y: -6, boxShadow: "0 24px 70px rgba(30, 167, 255, 0.15)", borderColor: "rgba(30, 167, 255, 0.4)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-
+      <article className="service-card">
         <div>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
           {item.outcome ? <div className="outcome-line">Outcome: {item.outcome}</div> : null}
         </div>
-      </motion.article>
+      </article>
     </Reveal>
   );
 }
@@ -65,20 +53,13 @@ export function ServiceCard({ item, delay = 0 }: { item: Service; delay?: number
 export function OutcomeCard({ item, delay = 0 }: { item: Outcome; delay?: number }) {
   return (
     <Reveal delay={delay}>
-      <motion.article 
-        className="outcome-card"
-        whileHover={{ y: -6, boxShadow: "0 24px 70px rgba(30, 167, 255, 0.15)", borderColor: "rgba(30, 167, 255, 0.4)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-
+      <article className="outcome-card">
         <h3>{item.title}</h3>
         <p>{item.description}</p>
-      </motion.article>
+      </article>
     </Reveal>
   );
 }
-
-const MotionLink = motion.create(Link);
 
 export function ServiceLinkCard({
   page,
@@ -89,11 +70,9 @@ export function ServiceLinkCard({
 }) {
   return (
     <Reveal delay={delay} className="h-full">
-      <MotionLink 
-        className={`service-link-card accent-${page.accent}`} 
+      <Link
+        className={`service-link-card accent-${page.accent}`}
         href={page.href}
-        whileHover={{ y: -8, boxShadow: "0 24px 70px rgba(30, 167, 255, 0.15)", borderColor: "rgba(30, 167, 255, 0.4)" }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
         style={{ display: "grid", height: "100%" }}
       >
         <span>{page.title}</span>
@@ -101,7 +80,7 @@ export function ServiceLinkCard({
         <div>
           Explore page <ArrowRight size={16} />
         </div>
-      </MotionLink>
+      </Link>
     </Reveal>
   );
 }

@@ -1,4 +1,4 @@
-.preview { width: 100%; max-width: 290px; margin: 0 auto; }
+.preview { width: 100%; min-width: 0; margin: 0; }
 .phone { padding: 10px; border: 1px solid #314b61; border-radius: 34px; background: var(--ink); box-shadow: var(--shadow); }
 .speaker { width: 54px; height: 5px; margin: 2px auto 10px; border-radius: 5px; background: #516374; }
 .screen { display: flex; flex-direction: column; min-height: 370px; padding: 22px 16px 14px; border-radius: 24px; background: linear-gradient(160deg, #fff, #edf7fc); color: var(--ink); }
@@ -11,11 +11,10 @@
 .mockField svg { flex-shrink: 0; }
 .screenNote { margin: 12px 0; color: var(--muted); font-size: 0.72rem; line-height: 1.5; }
 .previewLabel { margin-top: auto; padding-top: 18px; color: #476477; font-size: 0.65rem; text-align: center; letter-spacing: 0.06em; text-transform: uppercase; }
-.preview figcaption { margin-top: 16px; color: var(--muted); font-size: 0.75rem; text-align: center; line-height: 1.6; }
-.preview figcaption span { display: block; }
+.preview figcaption { margin: 12px 0 0; color: var(--muted); font-size: 12px; text-align: right; line-height: 1.5; }
+.preview figcaption span { display: inline; }
 .emptyState { display: grid; justify-items: center; gap: 12px; padding: 16px 8px 22px; color: #07627a; text-align: center; font-size: 0.85rem; }
 .emptyState small { color: var(--muted); font-size: 0.73rem; line-height: 1.5; }
 .mockRow { display: flex; justify-content: space-between; gap: 8px; padding: 11px 0; border-top: 1px solid var(--line); color: #3c576a; font-size: 0.72rem; }
-.compact { max-width: 230px; }
 .compact .screen { min-height: 325px; padding: 16px 12px 12px; }
 .compact .scanArea { min-height: 130px; }

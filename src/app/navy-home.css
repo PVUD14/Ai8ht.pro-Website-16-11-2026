@@ -8,16 +8,16 @@ body:has(.navy-home) > .spatial-bg { display: none; }
 .navy-home .section-heading h2 { color: #fff; font-size: clamp(28px, 3vw, 42px); line-height: 1.2; }
 .navy-home .eyebrow { color: #8cbdf5; }
 .navy-home .glass-panel, .navy-home .outcome-card { background: #0c2036; border-color: #243b53; box-shadow: none; backdrop-filter: none; }
-.navy-home #services article > h3, .navy-home .outcome-card h3 { color: #fff; }
-.navy-home #services article > p, .navy-home .outcome-card p { color: #b6c8dc; }
+.navy-home #services :is(article, .interactive-card) > h3, .navy-home .outcome-card h3 { color: #fff; }
+.navy-home #services :is(article, .interactive-card) > p, .navy-home .outcome-card p { color: #b6c8dc; }
 .navy-home #services article a { color: #8cbdf5; }
-.navy-home #services article > div:first-child { background: #142f49; color: #8cbdf5; }
+.navy-home #services :is(article, .interactive-card) > div:first-child { background: #142f49; color: #8cbdf5; }
 .navy-home #products > article > div:first-child h2, .navy-home .one-persona-copy h2 { color: #fff; }
 .navy-home #products > article > div:first-child p, .navy-home .one-persona-copy p { color: #b6c8dc; }
 .navy-home .one-persona-copy .one-spotlight-tagline { color: #8cbdf5; }
 .navy-home .one-shot-note { color: #b6c8dc; }
-.navy-home .button.primary, .navy-home #products .button:not(.ghost) { background: #2178ed; border: 1px solid #519dff; color: #fff; box-shadow: none; }
-.navy-home .button.ghost { background: transparent; border: 1px solid #7798b6; color: #fff; }
+:where(.navy-home) .button.primary, :where(.navy-home #products) .button:not(.ghost) { background: #2178ed; border: 1px solid #519dff; color: #fff; box-shadow: none; }
+:where(.navy-home) .button.ghost { background: transparent; border: 1px solid #7798b6; color: #fff; }
 .navy-home .contact-cta { padding: 40px; }
 .navy-home .contact-cta h2 { color: #fff; font-size: clamp(28px, 3vw, 40px); line-height: 1.2; }
 .navy-home .contact-cta p { color: #8cbdf5; }

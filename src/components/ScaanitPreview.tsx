@@ -1,4 +1,5 @@
 import { Barcode, FileText, ScanLine, Search, TextSearch } from "lucide-react";
+import { PreviewFrame } from "./PreviewFrame";
 import styles from "./ScaanitPreview.module.css";
 
 export type ScaanitPreviewKind = "barcode" | "product" | "label" | "ingredient";
@@ -13,6 +14,7 @@ const labels: Record<ScaanitPreviewKind, string> = {
 export function ScaanitPreview({ kind = "barcode", compact = false }: { kind?: ScaanitPreviewKind; compact?: boolean }) {
   return (
     <figure data-product-demo="true" className={compact ? `${styles.preview} ${styles.compact}` : styles.preview}>
+      <PreviewFrame contentWidth={290}>
       <div className={styles.phone} role="img" aria-label={`Illustrative Scaanit ${labels[kind].toLowerCase()} screen; not a real application screenshot or product result.`}>
         <div className={styles.speaker} aria-hidden="true" />
         <div className={styles.screen} aria-hidden="true">
@@ -47,6 +49,7 @@ export function ScaanitPreview({ kind = "barcode", compact = false }: { kind?: S
           <div className={styles.previewLabel}>Illustrative Preview</div>
         </div>
       </div>
+      </PreviewFrame>
       <figcaption>Illustrative Preview <span>· {labels[kind]}</span></figcaption>
     </figure>
   );

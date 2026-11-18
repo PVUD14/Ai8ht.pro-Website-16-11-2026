@@ -69,6 +69,7 @@ export default function ScamsDadaPage() {
         </div>
         <figure className={"one-shot " + styles.dashboard}>
           <a
+            className="dashboard-image-frame" data-dashboard-frame="true"
             href={scamsDadaProduct.dashboardImage}
             target="_blank"
             rel="noreferrer"

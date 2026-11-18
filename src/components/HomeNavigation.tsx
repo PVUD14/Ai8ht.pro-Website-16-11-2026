@@ -61,7 +61,7 @@ export function HomeNavigation() {
         <nav id="home-navigation" className={`${styles.nav} ${open ? styles.open : ""}`} aria-label="Primary navigation">
           <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>Home</Link>
           {dropdown("Services", services)}
-          {dropdown("Tools", products)}
+          {dropdown("Products", products)}
           <Link href="/whitepaper" aria-current={pathname === "/whitepaper" ? "page" : undefined}>Whitepaper</Link>
           <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</Link>
         </nav>

@@ -371,10 +371,6 @@ main {
   color: #14314a;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-}
-
 .hero-brand {
   position: relative;
   overflow: hidden;
@@ -537,18 +533,6 @@ main {
 
 .capability-card.tall {
   grid-row: span 2;
-}
-
-.capability-card:hover,
-.service-link-card:hover,
-.service-card:hover,
-.outcome-card:hover,
-.pillar-card:hover {
-  border-color: rgba(30, 167, 255, 0.5);
-  box-shadow: 
-    0 24px 60px rgba(30, 167, 255, 0.15),
-    inset 0 0 20px rgba(30, 167, 255, 0.05);
-  transform: translateY(-4px) scale(1.01);
 }
 
 .card-icon,
@@ -1298,10 +1282,6 @@ main {
   font-size: 0.9rem;
   opacity: 0.7;
   transition: opacity 0.3s ease;
-}
-
-.logo-item:hover {
-  opacity: 1;
 }
 
 .logo-icon {

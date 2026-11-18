@@ -43,12 +43,12 @@ export default function OnePage() {
         </div>
       </section>
 
-      {oneProduct.personas.map((persona, index) => (
+      {oneProduct.personas.map((persona) => (
         <section
           key={persona.key}
-          className={index % 2 === 1 ? "section soft-band" : "section"}
+          className="section one-persona-section"
         >
-          <div className="one-persona">
+          <div className="one-persona one-persona-detail">
             <Reveal>
               <div className="one-persona-copy">
                 <p className="eyebrow">{persona.title}</p>
@@ -61,12 +61,14 @@ export default function OnePage() {
             </Reveal>
             <Reveal delay={100}>
               <div className="one-shot">
+                <div className="dashboard-image-frame" data-dashboard-frame="true">
                 <Image
                   src={persona.image}
                   alt={`ONE ${persona.title} dashboard preview`}
                   width={1600}
                   height={1000}
                 />
+                </div>
                 <p className="one-shot-note">Product preview</p>
               </div>
             </Reveal>

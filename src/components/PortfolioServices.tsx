@@ -9,8 +9,9 @@ export function PortfolioServices({ detailed = false }: { detailed?: boolean }) 
   const Heading = detailed ? "h2" : "h3";
   return (
     <div className={styles.grid}>
-      {serviceGroups.map(group => (
-        <article className={`glass-panel ${styles.card}`} id={`area-${group.id}`} key={group.id} aria-labelledby={`service-${group.id}`}>
+      {serviceGroups.map(group => {
+        const singleDestination = group.links.length === 1;
+        const content = <>
           <div className={styles.icon}><Icon name={group.icon} size={28} /></div>
           <Heading id={`service-${group.id}`}>{group.title}</Heading>
           <p className={styles.summary}>{group.description}</p>
@@ -28,8 +29,13 @@ export function PortfolioServices({ detailed = false }: { detailed?: boolean }) 
             </ul>
           ) : null}
           <div className={styles.links}>
-            {group.links.map(link => <Link href={link.href} key={link.href}>{link.label}<ArrowRight size={16} aria-hidden="true" /></Link>)}
+            {group.links.map(link => singleDestination
+              ? <span key={link.href}>{link.label}<ArrowRight size={16} aria-hidden="true" /></span>
+              : <Link className="interactive-text" href={link.href} key={link.href}>{link.label}<ArrowRight size={16} aria-hidden="true" /></Link>)}
           </div>
-        </article>
-      ))}
+        </>;
+        return singleDestination
+          ? <Link href={group.links[0].href} className={`glass-panel ${styles.card} interactive-card`} id={`area-${group.id}`} key={group.id} aria-labelledby={`service-${group.id}`}>{content}</Link>
+          : <article className={`glass-panel ${styles.card}`} id={`area-${group.id}`} key={group.id} aria-labelledby={`service-${group.id}`}>{content}</article>;
+      })}
     </div>); }

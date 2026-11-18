@@ -1,66 +1,61 @@
-/* Lightweight bubble feedback for actions, with no pointer-tracking scripts. */
-.page-transition {
-  animation: page-arrive 480ms cubic-bezier(.22, 1, .36, 1);
-}
-
+/* Quick page arrivals and consistent feedback for real click targets. */
+.page-transition { transform-origin: 50% 0; animation: page-arrive 240ms cubic-bezier(.2, .8, .2, 1); }
 @keyframes page-arrive {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: .15; transform: translateY(10px) scale(.97); }
   to { opacity: 1; transform: none; }
 }
-
+a[href], button:not(:disabled), summary { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:is(.button, section[aria-labelledby="home-title"] a, .reader-index button, .service-directory > nav a, .contact-card a, header button, header nav a, header nav summary, main summary, .interactive-card, a.service-link-card) {
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+header nav > a, header nav summary { border-radius: 8px; }
+:is(.interactive-text, .page-jump, .breadcrumbs a, .footer-links a, .footer-contact a, .contact-cta p a, .reader-content a) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  text-decoration: none;
+  transition: background-size 180ms ease, color 180ms ease;
+}
+:is(.button, .interactive-card, a.service-link-card, .interactive-text, section[aria-labelledby="home-title"] a) .lucide-arrow-right,
+header nav summary svg { transition: transform 180ms ease; }
+header details[open] summary svg { transform: rotate(180deg); }
+/* Only linked previews zoom; static dashboard pictures remain still. */
+.one-shot > a { display: block; border-radius: 16px; overflow: hidden; }
+.one-shot > a img { transition: transform 220ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  :is(.button, section[aria-labelledby="home-title"] a, .reader-index button, .service-directory > nav a, .contact-card a, header button):not(:disabled):hover {
+    transform: translateY(-2px); border-color: #8cbdf5; box-shadow: 0 5px 16px #62b5ff1c;
+  }
+  :is(.interactive-card, a.service-link-card):hover {
+    transform: translateY(-4px) scale(1.008); border-color: #8cbdf580; box-shadow: 0 10px 24px #62b5ff1c;
+  }
+  :is(header nav a, header nav summary, main summary):hover {
+    color: #a9d1ff; background-color: #8cbdf512; box-shadow: inset 0 0 0 1px #8cbdf526;
+  }
+  header nav summary:hover svg { transform: translateY(2px); }
+  header details[open] summary:hover svg { transform: translateY(2px) rotate(180deg); }
+  :is(.interactive-text, .page-jump, .breadcrumbs a, .footer-links a, .footer-contact a, .contact-cta p a, .reader-content a):hover {
+    color: #a9d1ff; background-size: 100% 1px; text-decoration: none;
+  }
+  :is(.button, .interactive-card, a.service-link-card, .interactive-text, section[aria-labelledby="home-title"] a):hover .lucide-arrow-right { transform: translateX(3px); }
+  .one-shot > a:hover img { transform: scale(1.025); }
+}
+:is(.button, section[aria-labelledby="home-title"] a, .reader-index button, .service-directory > nav a, .contact-card a, header button, header nav a, header nav summary, main summary, .interactive-card, a.service-link-card, .one-shot > a):focus-visible {
+  outline: 3px solid #8cbdf5; outline-offset: 4px; border-color: #8cbdf5; box-shadow: 0 0 0 5px #8cbdf512;
+}
+:is(.interactive-text, .page-jump, .breadcrumbs a, .footer-links a, .footer-contact a, .contact-cta p a, .reader-content a):focus-visible {
+  color: #a9d1ff; background-size: 100% 1px;
+}
+:is(.button, section[aria-labelledby="home-title"] a, .reader-index button, .service-directory > nav a, .contact-card a, header button, header nav a, header nav summary, main summary):not(:disabled):active {
+  transform: scale(.98); transition-duration: 90ms;
+}
+:is(.interactive-card, a.service-link-card):active { transform: scale(.99); transition-duration: 90ms; }
+.one-shot > a:active img { transform: scale(.99); transition-duration: 90ms; }
 @media (prefers-reduced-motion: reduce) {
   .page-transition { animation: none; }
-}
-
-:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a) {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease;
-}
-
-:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 16% 85%, #8cdcff55 0 10px, transparent 11px),
-    radial-gradient(circle at 78% 65%, #96a4ff44 0 17px, transparent 18px),
-    radial-gradient(circle at 48% 110%, #75baff55 0 24px, transparent 25px);
-  opacity: 0;
-  transform: translateY(18px) scale(.85);
-  transition: opacity 220ms ease, transform 420ms cubic-bezier(.2,.8,.2,1);
-}
-
-header nav > a, header nav summary { border-radius: 8px; }
-
-@media (hover: hover) and (pointer: fine) {
-  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px #62b5ff22, inset 0 0 0 1px #91cfff33;
-  }
-  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):hover::after {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):focus-visible::after {
-  opacity: 1;
-  transform: none;
-}
-
-:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):active {
-  transform: scale(.98);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a),
-  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a)::after {
-    transition: none;
-    transform: none !important;
+  :is(.button, section[aria-labelledby="home-title"] a, .reader-index button, .service-directory > nav a, .contact-card a, header button, header nav a, header nav summary, main summary, .interactive-card, a.service-link-card, .one-shot > a img, .lucide-arrow-right, header nav summary svg) {
+    transition: none; transform: none !important;
   }
 }

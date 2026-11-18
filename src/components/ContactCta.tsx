@@ -9,7 +9,7 @@ export function ContactCta({ related = [] }: { related?: { label: string; href: 
         <div>
           <p className="eyebrow">Discuss your goals</p>
           <h2>Not sure where to start? Talk to us.</h2>
-          {related.length > 0 && <p>You may also need: {related.map((link, index) => <span key={link.href}>{index > 0 ? " / " : ""}<Link href={link.href} style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>{link.label}</Link></span>)}.</p>}
+          {related.length > 0 && <p>You may also need: {related.map((link, index) => <span key={link.href}>{index > 0 ? " / " : ""}<Link href={link.href} className="interactive-text">{link.label}</Link></span>)}.</p>}
         </div>
         <div className="cta-actions">
           <a className="button primary" href={`mailto:${contact.email}`}>

@@ -1,0 +1,18 @@
+.frame {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: var(--dashboard-preview-ratio, 16 / 10);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-strong);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flow-root;
+  transform-origin: center;
+}

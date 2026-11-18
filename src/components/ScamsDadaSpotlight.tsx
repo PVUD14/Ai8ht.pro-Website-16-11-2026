@@ -20,7 +20,7 @@ export function ScamsDadaSpotlight() {
         </div>
       </div>
       <div className={"one-shot " + styles.preview}>
-        <Link href={scamsDadaProduct.path} aria-label="Explore the ScamsDada product and dashboard">
+        <Link className="dashboard-image-frame" data-dashboard-frame="true" href={scamsDadaProduct.path} aria-label="Explore the ScamsDada product and dashboard">
           <Image
             src={scamsDadaProduct.dashboardImage}
             alt="ScamsDada dashboard preview with Screenshot, Message, Link and Get Help options"

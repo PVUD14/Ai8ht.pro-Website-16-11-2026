@@ -37,9 +37,9 @@ Environment variables are optional for browsing the website. To configure contac
 
 The product pages describe the products; the Launch buttons open their separate applications. Those applications and their backends are not part of this repository. The launch destinations are configured links, not a guarantee of external service availability.
 
-The shared site navigation is Home, Services, Tools, Whitepaper, and Contact. Services groups the service overview and five service pages. Tools links to ONE, ScamsDada, Scaanit, and TicketX, with a short explanation of each tool. The same header and mobile navigation are used on every public page. Explore explains a tool; Launch opens its separate website.
+The shared site navigation is Home, Services, Products, Whitepaper, and Contact. Services groups the service overview and five service pages. Products links to ONE, ScamsDada, Scaanit, and TicketX, with a short explanation of each tool. The same header and mobile navigation are used on every public page. Explore explains a product; Launch opens its separate website.
 
-Service pages use short headings and practical descriptions. Related links help visitors continue to another service or tool. TicketX shows its main features first and keeps additional information in expandable sections. The whitepaper provides a short guide to choosing a service and getting started.
+Service pages use short headings and practical descriptions. Related links help visitors continue to another service or product. TicketX shows its main features first and keeps additional information in expandable sections. The whitepaper provides a short guide to choosing a service and getting started.
 
 ## Current presentation
 
