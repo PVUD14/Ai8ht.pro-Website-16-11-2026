@@ -16,7 +16,7 @@ const sampleTickets = [
 
 export function TicketXPreview({ kind = "dashboard", compact = false }: { kind?: TicketXPreviewKind; compact?: boolean }) {
   return (
-    <figure className={`${styles.preview} ${compact ? styles.compact : ""}`}>
+    <figure data-product-demo="true" className={`${styles.preview} ${compact ? styles.compact : ""}`}>
       <div className={styles.frame} role="img" aria-label={`Illustrative TicketX ${labels[kind].toLowerCase()} with example information; not an actual application screenshot.`}>
         <div aria-hidden="true">
           <div className={styles.topbar}>

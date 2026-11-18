@@ -186,7 +186,7 @@ export default function ScamsDadaPage() {
         </div>
       </section>
 
-      <ContactCta />
+      <ContactCta related={[{ label: "AI8HT capabilities", href: "/capabilities" }]} />
     </div>
   );
 }

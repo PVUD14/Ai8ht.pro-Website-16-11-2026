@@ -42,14 +42,14 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form id="contact-form" style={{ scrollMarginTop: 110 }} className="contact-form" onSubmit={handleSubmit} aria-busy={isSubmitting}>
       {status === "success" && (
-        <div className="form-status success">
-          Thanks for reaching out to us, Our Team will connect with you shortly
+        <div className="form-status success" role="status">
+          Thank you. Your message has been submitted.
         </div>
       )}
       {status === "error" && (
-        <div className="form-status error">
+        <div className="form-status error" role="alert">
           Failed to send message. Please try again or email us directly.
         </div>
       )}

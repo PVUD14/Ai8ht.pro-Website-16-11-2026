@@ -44,7 +44,7 @@ export default function TicketXPage() {
           <p className="eyebrow">{ticketxProduct.category}</p>
           <p className={styles.productName}><Ticket size={23} aria-hidden="true" />TicketX</p>
           <h1 id="ticketx-title">Every Request.<br />One Workflow.<br /><span>Complete Visibility.</span></h1>
-          <p className={styles.summary}>Centralize IT service requests, streamline support workflows, automate ticket assignments, and gain greater operational visibility with TicketX.</p>
+          <p className={styles.summary}>Keep IT support requests in one place. Employees ask for help, support teams manage the work, and managers follow progress.</p>
           <div className={`hero-actions ${styles.actions}`}>
             <a className="button primary" href={ticketxProduct.url}>Launch TicketX <ArrowRight size={18} aria-hidden="true" /></a>
             <Link className="button ghost" href="/contact">Contact Us <ArrowRight size={18} aria-hidden="true" /></Link>
@@ -56,25 +56,25 @@ export default function TicketXPage() {
 
       <section className={`section ${styles.section}`} id="about-ticketx" aria-labelledby="about-title">
         <div className={styles.split}>
-          <SectionHeading id="about-title" eyebrow="About TicketX" title="Simplify Enterprise IT Service Management" />
+          <SectionHeading id="about-title" eyebrow="About TicketX" title="One place to ask for help" />
           <div className={styles.bodyCopy}>
-            <p>TicketX brings internal support requests, operational incidents, ticket workflows, and service delivery into a centralized workspace.</p>
-            <p>Employees submit requests while support teams coordinate assignments, communication, and resolution. Administrators gain a shared view of service activity and ownership.</p>
+            <p>Use TicketX to report an IT problem, request access or ask for equipment.</p>
+            <p>See who is handling a request, follow updates and keep a record of the result.</p>
           </div>
         </div>
       </section>
 
-      <section className={`section ${styles.section}`} id="business-challenge" aria-labelledby="challenge-title">
+      <section className={`section ${styles.section}`} id="business-challenge" aria-labelledby="challenge-title"><details className="content-disclosure"><summary>Read more: problems TicketX helps organize</summary>
         <div className={`glass-panel ${styles.challengePanel}`}>
           <SectionHeading id="challenge-title" eyebrow="The business challenge" title="Bring Structure to IT Operations" description="Centralized service workflows help teams replace fragmented handoffs with clearer ownership, consistent request handling, and a shared activity record." />
           <ul className={styles.challengeGrid}>{ticketxChallenges.map(challenge => <li key={challenge}><span aria-hidden="true" />{challenge}</li>)}</ul>
         </div>
-      </section>
+      </details></section>
 
       <section className={`section ${styles.section}`} id="features" aria-labelledby="features-title">
-        <SectionHeading id="features-title" eyebrow="Key features" title="A Connected Workspace for Service Delivery" description="Organize incoming work, coordinate teams, and follow each request through its lifecycle." />
+        <SectionHeading id="features-title" eyebrow="Key features" title="What you can do with TicketX" description="Create a request, send it to the right team and track it until it is resolved." />
         <div className={styles.featureGrid}>
-          {ticketxFeatures.map(feature => {
+          {ticketxFeatures.slice(0, 4).map(feature => {
             const Icon = featureIcons[feature.icon];
             return <article className={`glass-panel ${styles.featureCard}`} key={feature.title}>
               <span className={styles.icon}><Icon size={24} aria-hidden="true" /></span>
@@ -86,35 +86,36 @@ export default function TicketXPage() {
         </div>
       </section>
 
-      <section className={`section ${styles.section}`} id="how-it-works" aria-labelledby="workflow-title">
+      <section className={`section ${styles.section}`} aria-label="More TicketX features"><details className="content-disclosure"><summary>Read more: additional features</summary>{ticketxFeatures.slice(4).map(feature => <div key={feature.title}><h3>{feature.title}</h3><p>{feature.description}</p>{"note" in feature && <p>{feature.note}</p>}</div>)}</details></section>
+<section className={`section ${styles.section}`} id="how-it-works" aria-labelledby="workflow-title">
         <SectionHeading id="workflow-title" eyebrow="How TicketX works" title="From Request to Resolution" />
         <ol className={styles.steps}>{ticketxSteps.map((step, index) => <li key={step.title}>
           <span className={styles.stepNumber} aria-hidden="true">0{index + 1}</span><h3>{step.title}</h3><p>{step.description}</p>
         </li>)}</ol>
       </section>
 
-      <section className={`section ${styles.section}`} id="audience" aria-labelledby="audience-title">
+      <section className={`section ${styles.section}`} id="audience" aria-labelledby="audience-title"><details className="content-disclosure"><summary>Read more: who can use TicketX</summary>
         <SectionHeading id="audience-title" eyebrow="Who is TicketX for?" title="Built for Modern Enterprise Teams" />
         <div className={styles.audienceGrid}>{ticketxAudiences.map(audience => <article className={`pillar-card ${styles.audienceCard}`} key={audience.title}>
           <h3>{audience.title}</h3><p>{audience.description}</p>
         </article>)}</div>
-      </section>
+      </details></section>
 
-      <section className={`section ${styles.section}`} id="security" aria-labelledby="security-title">
+      <section className={`section ${styles.section}`} id="security" aria-labelledby="security-title"><details className="content-disclosure"><summary>Read more: access and responsibilities</summary>
         <div className={styles.securityPanel}>
           <SectionHeading id="security-title" eyebrow="Access and accountability" title="The Right Access. Clear Responsibility." description="Help people find the information they need while keeping ownership and progress visible." />
           <div className={styles.securityGrid}>{ticketxSecurity.map(control => <article key={control.title}>
             <Check size={18} aria-hidden="true" /><div><h3>{control.title}</h3><p>{control.description}</p></div>
           </article>)}</div>
         </div>
-      </section>
+      </details></section>
 
-      <section className={`section ${styles.section}`} id="workspace" aria-labelledby="workspace-title">
+      <section className={`section ${styles.section}`} id="workspace" aria-labelledby="workspace-title"><details className="content-disclosure"><summary>View example screens</summary>
         <SectionHeading id="workspace-title" eyebrow="Application preview" title="Explore the TicketX Workspace" description="Illustrative previews with example information. Actual application screens may differ." />
         <div className={styles.previewGrid}>{previewScreens.map(preview => <article key={preview.kind}>
           <h3>{preview.title}</h3><TicketXPreview kind={preview.kind} compact />
         </article>)}</div>
-      </section>
+      </details></section>
 
       <section className={`section ${styles.section}`} id="faq" aria-labelledby="faq-title">
         <SectionHeading id="faq-title" eyebrow="Questions and answers" title="More About TicketX" />
@@ -128,8 +129,8 @@ export default function TicketXPage() {
         <div className={`contact-cta glass-panel ${styles.contact}`}>
           <div>
             <p className="eyebrow">Connect with AI8HT</p>
-            <h2 id="contact-title">Bring Structure to Your IT Service Operations</h2>
-            <p>Explore how TicketX can help centralize service requests, organize support workflows, and improve operational visibility.</p>
+            <h2 id="contact-title">Want to know if TicketX fits your team?</h2>
+            <p>Tell us how you manage support requests today and what you want to improve.</p>
           </div>
           <div className={styles.contactActions}>
             <Link className="button primary" href="/contact">Contact Us <ArrowRight size={18} aria-hidden="true" /></Link>

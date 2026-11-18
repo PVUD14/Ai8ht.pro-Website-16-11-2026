@@ -2,7 +2,7 @@ export const ticketxProduct = {
   name: "TicketX",
   path: "/ticketx",
   url: "https://ticketx.ai8ht.pro",
-  category: "Enterprise IT Service Management",
+  category: "IT support requests",
   tagline: "Every Request. One Workflow. Complete Visibility.",
   description: "TicketX is an enterprise IT service management platform that centralizes support requests, automates ticket routing, manages service workflows, and provides visibility into IT operations.",
   highlights: ["Centralized Ticketing", "Workflow Automation", "Enterprise Access Control", "IT Operations Visibility"]
@@ -15,9 +15,9 @@ export const ticketxChallenges = [
 ];
 
 export const ticketxFeatures = [
-  { icon: "tickets", title: "Centralized Ticket Management", description: "Create, assign, prioritize, resolve, and close service tickets through a structured lifecycle with associated activity history." },
-  { icon: "routing", title: "Automated Ticket Routing", description: "Direct incoming requests to the right support team based on the type of help needed." },
-  { icon: "dashboard", title: "Operational Dashboards", description: "See open requests, priorities, and progress at a glance." },
+  { icon: "tickets", title: "Track support requests", description: "Create a support request, assign it to someone and follow its progress." },
+  { icon: "routing", title: "Send work to the right team", description: "Direct incoming requests to the right support team based on the type of help needed." },
+  { icon: "dashboard", title: "See progress", description: "See open requests, priorities, and progress at a glance." },
   { icon: "access", title: "Team Access", description: "Give employees, support teams, and managers access to the information they need for their roles." },
   { icon: "approvals", title: "Approval Workflows", description: "Organize requests that need approval. Contact us to confirm availability for your organization.", note: "Ask about availability" },
   { icon: "knowledge", title: "Knowledge Base", description: "Help teams find answers and reuse guidance for common support questions." },
@@ -25,7 +25,7 @@ export const ticketxFeatures = [
   { icon: "sla", title: "Service Targets", description: "Set targets for responding to and resolving support requests." },
   { icon: "tenants", title: "Separate Workspaces", description: "Organize support for different groups with separate workspaces and permissions." },
   { icon: "integrations", title: "Connected Workflows", description: "Bring requests from your existing tools into a shared support process. Contact us to discuss compatibility." },
-  { icon: "history", title: "Activity History and Auditability", description: "Keep a record of ticket changes, comments, approval decisions, and relevant operational actions." }
+  { icon: "history", title: "Track changes", description: "Keep a record of ticket changes, comments, approval decisions, and relevant operational actions." }
 ] as const;
 
 export const ticketxSteps = [

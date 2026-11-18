@@ -15,14 +15,12 @@ export function Footer() {
             height={67}
           />
           <p>
-            Practical, secure, and automation-first digital capabilities for
-            organizations that need better visibility, stronger controls, faster
-            response, and privacy-conscious decision support.
+            Practical services and digital products for people and organizations across operations, AI and analytics, compliance, training, and cybersecurity.
           </p>
         </div>
         <div className="footer-links">
           {navigation
-            .slice(1)
+            .slice(0)
             .flatMap((item) => [item, ...("subitems" in item ? (item as { subitems: { label: string; href: string }[] }).subitems : [])])
             .filter((item, index, all) => all.findIndex((other) => other.href === item.href) === index)
             .map((item) => (

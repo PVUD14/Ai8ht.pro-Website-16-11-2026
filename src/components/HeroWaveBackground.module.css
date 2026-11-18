@@ -1,0 +1,9 @@
+.wave { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.canvas, .fallback { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fallback { object-fit: cover; object-position: 65% bottom; opacity: .8; }
+.canvas { opacity: 0; transition: opacity 700ms ease; }
+.wave[data-wave-state="running"] .canvas, .wave[data-wave-state="paused"] .canvas { opacity: 1; }
+.wave[data-wave-state="running"] .fallback, .wave[data-wave-state="paused"] .fallback { opacity: 0; }
+.wave::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #071425 0%, transparent 32%, transparent 88%, #071425 100%), linear-gradient(105deg, rgba(7,20,37,.92), rgba(7,20,37,.15) 53%, transparent 75%); }
+@media (max-width: 767px) { .wave { top: 190px; left: -80%; width: 180%; } .wave::after { background: linear-gradient(180deg, #071425, rgba(7,20,37,.72) 30%, transparent 70%, #071425); } }
+@media (prefers-reduced-motion: reduce) { .canvas { transition: none; } }

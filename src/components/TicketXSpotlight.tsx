@@ -13,7 +13,6 @@ export function TicketXSpotlight() {
         <h2 id="ticketx-spotlight-title">{ticketxProduct.name}</h2>
         <p className={styles.tagline}>{ticketxProduct.tagline}</p>
         <p className={styles.description}>{ticketxProduct.description}</p>
-        <ul>{ticketxProduct.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
         <div className={styles.actions}>
           <Link className="button primary" href={ticketxProduct.path}>Explore TicketX <ArrowRight size={18} aria-hidden="true" /></Link>
           <a className="button ghost" href={ticketxProduct.url}>Launch TicketX</a>

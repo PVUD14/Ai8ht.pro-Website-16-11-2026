@@ -37,16 +37,22 @@ Environment variables are optional for browsing the website. To configure contac
 
 The product pages describe the products; the Launch buttons open their separate applications. Those applications and their backends are not part of this repository. The launch destinations are configured links, not a guarantee of external service availability.
 
-ONE, Scaanit, and TicketX appear under Enterprise Operations in navigation. ScamsDada appears under Cybersecurity Assessment. There is no separate Products navigation menu.
+The shared site navigation is Home, Services, Tools, Whitepaper, and Contact. Services groups the service overview and five service pages. Tools links to ONE, ScamsDada, Scaanit, and TicketX, with a short explanation of each tool. The same header and mobile navigation are used on every public page. Explore explains a tool; Launch opens its separate website.
+
+Service pages use short headings and practical descriptions. Related links help visitors continue to another service or tool. TicketX shows its main features first and keeps additional information in expandable sections. The whitepaper provides a short guide to choosing a service and getting started.
 
 ## Current presentation
 
+The homepage balances four equally presented service groups: Enterprise Operations, AI & Analytics, Compliance & Training, and Cybersecurity. Its sequence is introduction, services, products, shared benefits, and contact. The Capabilities page groups all ten original capabilities under these same four areas, preserving their artwork and identifiers. Shared messaging and social metadata describe the whole portfolio; repeating tickers show the four service areas and legal notices.
+
 - Homepage product content and Explore/Launch buttons are on the left, with previews on the right. The layout stacks on smaller screens.
 - Product headings use a consistent size. The centered AI8HT Products label has decorative lines on both sides.
-- ScamsDada uses the shared white card background and the supplied dashboard screenshot.
+- Homepage products share navy cards; ScamsDada retains the supplied dashboard screenshot.
 - ONE uses the included dashboard images. Scaanit and TicketX previews are clearly labeled illustrations, not production screenshots.
-- The top animation strip and navigation panel meet without a vertical gap, including while scrolling.
+- All public pages use the approved navy design system and a persistent Three.js network wave, with quieter treatment on contact and whitepaper pages.
 - Public product copy focuses on features and benefits rather than implementation details.
+
+The wave loads lazily, pauses when offscreen or hidden, and uses a static capture of the same scene for reduced motion, constrained devices, or unavailable WebGL. One canvas persists through client route changes. See [FULL_SITE_IMPLEMENTATION.md](FULL_SITE_IMPLEMENTATION.md), [FULL_SITE_AUDIT.md](FULL_SITE_AUDIT.md), and [FULL_SITE_REPORT.md](FULL_SITE_REPORT.md) for the current architecture, route inventory, validation and screenshots. [REDESIGN_NOTES.md](REDESIGN_NOTES.md) records the earlier homepage phase. No production deployment has been performed.
 
 ## Project structure
 

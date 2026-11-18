@@ -1462,3 +1462,18 @@ main {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Balanced portfolio presentation */
+.portfolio-hero > div { min-width: 0; max-width: 100%; }
+.logo-marquee-track { gap: 0; width: max-content; }
+.logo-marquee-group, .legal-marquee-group { display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; min-width: 100vw; gap: 60px; padding: 0 30px; }
+.legal-marquee-group span { padding-right: 0; }
+.portfolio-hero { min-height: auto; padding-top: 60px; padding-bottom: 48px; }
+.portfolio-hero .hero-copy h1 { max-width: 1000px; font-size: clamp(2.6rem, 5.4vw, 4.8rem); line-height: 1.06; }
+.portfolio-hero .hero-copy p:not(.eyebrow) { max-width: 800px; margin: 24px auto 0; }
+#services, #products { scroll-margin-top: 170px; }
+.one-spotlight { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 44px); padding: clamp(24px, 3vw, 36px); }
+.one-spotlight > * { min-width: 0; }
+.one-spotlight .one-persona-copy > p:not(.one-spotlight-tagline) { font-size: 1rem; line-height: 1.7; }
+@media (max-width: 900px) { .one-spotlight { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .portfolio-hero { padding-top: 36px; } }

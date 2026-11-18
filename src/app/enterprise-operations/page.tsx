@@ -5,7 +5,7 @@ import { ServicePage } from "@/components/ServicePage";
 import { getServicePage } from "@/data/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Enterprise Operations",
+  title: "Business Operations",
   description: getServicePage("enterprise-operations")?.summary ?? "",
   path: "/enterprise-operations"
 });

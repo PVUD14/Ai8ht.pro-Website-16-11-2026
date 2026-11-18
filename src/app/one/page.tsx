@@ -74,18 +74,18 @@ export default function OnePage() {
         </section>
       ))}
 
-      <section className="section">
+      <section className="section one-trust-section">
         <Reveal>
           <div className="section-heading centered">
             <p className="eyebrow">Trust &amp; compliance</p>
             <h2>Enterprise-grade security posture, verified.</h2>
           </div>
         </Reveal>
-        <div className="pillar-grid">
+        <div className="pillar-grid one-trust-grid">
           {trustItems.map((item, index) => (
             <Reveal key={item.title} delay={index * 70}>
               <article className="pillar-card">
-                <h2>{item.title}</h2>
+                <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </article>
             </Reveal>
@@ -93,7 +93,7 @@ export default function OnePage() {
         </div>
       </section>
 
-      <ContactCta />
+      <ContactCta related={[{ label: "Enterprise Operations", href: "/enterprise-operations" }]} />
     </>
   );
 }

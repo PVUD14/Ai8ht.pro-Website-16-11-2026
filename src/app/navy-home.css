@@ -1,0 +1,36 @@
+/* Homepage-only palette; existing inner pages keep their established styles. */
+body:has(.navy-home) { background: #071425; padding-bottom: 0; }
+body:has(.navy-home) > .spatial-bg { display: none; }
+.navy-home { color: #fff; background: #071425; font-family: Arial, Helvetica, sans-serif; }
+.navy-home > .section { width: min(calc(100% - 112px), 1440px); padding: 64px 0; }
+.navy-home > .section.soft-band { background: transparent; }
+.navy-home .section-heading { margin-bottom: 36px; }
+.navy-home .section-heading h2 { color: #fff; font-size: clamp(28px, 3vw, 42px); line-height: 1.2; }
+.navy-home .eyebrow { color: #8cbdf5; }
+.navy-home .glass-panel, .navy-home .outcome-card { background: #0c2036; border-color: #243b53; box-shadow: none; backdrop-filter: none; }
+.navy-home #services article > h3, .navy-home .outcome-card h3 { color: #fff; }
+.navy-home #services article > p, .navy-home .outcome-card p { color: #b6c8dc; }
+.navy-home #services article a { color: #8cbdf5; }
+.navy-home #services article > div:first-child { background: #142f49; color: #8cbdf5; }
+.navy-home #products > article > div:first-child h2, .navy-home .one-persona-copy h2 { color: #fff; }
+.navy-home #products > article > div:first-child p, .navy-home .one-persona-copy p { color: #b6c8dc; }
+.navy-home .one-persona-copy .one-spotlight-tagline { color: #8cbdf5; }
+.navy-home .one-shot-note { color: #b6c8dc; }
+.navy-home .button.primary, .navy-home #products .button:not(.ghost) { background: #2178ed; border: 1px solid #519dff; color: #fff; box-shadow: none; }
+.navy-home .button.ghost { background: transparent; border: 1px solid #7798b6; color: #fff; }
+.navy-home .contact-cta { padding: 40px; }
+.navy-home .contact-cta h2 { color: #fff; font-size: clamp(28px, 3vw, 40px); line-height: 1.2; }
+.navy-home .contact-cta p { color: #8cbdf5; }
+.navy-home a:focus-visible { outline: 3px solid #8cbdf5; outline-offset: 5px; }
+.navy-home #services, .navy-home #products { scroll-margin-top: 110px; }
+body:has(.navy-home) .site-footer { color: #fff; border-color: #243b53; background: #0c2036; box-shadow: none; width: min(calc(100% - 112px), 1440px); font-family: Arial, Helvetica, sans-serif; }
+body:has(.navy-home) .site-footer p { color: #b6c8dc; }
+body:has(.navy-home) .site-footer a { color: #b6c8dc; }
+body:has(.navy-home) .footer-contact a { background: #122c45; border-color: #36516d; color: #fff; }
+body:has(.navy-home) .legal-marquee-wrapper, body:has(.navy-home) .logo-marquee-wrapper { position: relative; inset: auto; z-index: 1; overflow: hidden; background: #071425; border-color: #243b53; backdrop-filter: none; }
+body:has(.navy-home) .logo-item { color: #b6c8dc; opacity: 1; }
+@media (max-width: 767px) {
+  .navy-home > .section, body:has(.navy-home) .site-footer { width: calc(100% - 40px); }
+  .navy-home > .section { padding: 40px 0; }
+  .navy-home .contact-cta { padding: 24px; }
+}

@@ -4,7 +4,7 @@
 .tagline { max-width: 400px; margin: 14px 0 0; font-size: 1.2rem; line-height: 1.5; color: #005d91; }
 .copy, .preview { min-width: 0; }
 .description { margin: 20px 0 0; color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
-.actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; }
+.actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; margin-top: 24px; }
 .copy ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 20px 0 26px; padding: 0; }
 .copy li { padding: 6px 10px; border-radius: 6px; background: #eaf5fa; color: #24566c; font-size: .8rem; }
 .copy a:focus-visible { outline: 3px solid #005d91; outline-offset: 4px; }

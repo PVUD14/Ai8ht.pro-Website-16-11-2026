@@ -18,13 +18,14 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact AI8HT"
-        title="Discuss secure, practical capabilities for your organization"
-        summary="Use the brochure contact details below to discuss cybersecurity, compliance, operations, automation, local-first AI, analytics, and executive decision support."
+        title="Discuss your goals with AI8HT"
+        summary="Tell us what you want to improve across operations, AI and analytics, compliance, training or cybersecurity. We can also help you explore ONE, ScamsDada, Scaanit and TicketX."
+        actionLabel="Send a message" actionHref="#contact-form"
         icon="mail"
         image="/assets/contact.png"
       />
 
-      <section className="section contact-page-grid">
+      <section id="page-details" className="section contact-page-grid">
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <Reveal>
             <div className="contact-card glass-panel">
@@ -56,7 +57,7 @@ export default function ContactPage() {
           <div className="contact-card glass-panel" style={{ height: "100%" }}>
             <h2>Send us a message</h2>
             <p style={{ marginBottom: "24px" }}>
-              Fill out the form below and our team will get back to you shortly.
+              Share your goals, the service or product you are interested in, and any priorities or questions.
             </p>
             <ContactForm />
           </div>

@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Footer } from "@/components/Footer";
-import { Navigation } from "@/components/Navigation";
+import { SiteHeader } from "@/components/SiteHeader";
 import { LegalMarquee } from "@/components/LegalMarquee";
 import { LogoMarquee } from "@/components/LogoMarquee";
-import { WarpSpeedLogo } from "@/components/WarpSpeedLogo";
 import { Analytics } from "@/components/Analytics";
 import { contact } from "@/data/site";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
+import "./navy-home.css";
+import "./design-system.css";
+import { AI8HTMotionBackground } from "@/components/AI8HTMotionBackground";
 
-const HOME_TITLE = "AI8HT | Cybersecurity, Compliance, Operations & AI Automation";
+const HOME_TITLE = "AI8HT | Practical Technology for People and Organizations";
 const HOME_DESCRIPTION =
-  "AI8HT delivers capability-driven technology across cybersecurity, compliance, enterprise operations, training, automation, and AI-assisted decision support.";
+  "Explore AI8HT services and digital products for business operations, AI and analytics, compliance, training, cybersecurity, and everyday decisions.";
 
 // Search Console / Bing ownership tags. Optional: set in .env.production and
 // rebuild, or verify through a DNS TXT record instead (no rebuild needed).
@@ -72,23 +74,20 @@ const organizationJsonLd = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f8fbff"
+  themeColor: "#071425"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
         />
-        <div className="spatial-bg" aria-hidden="true" />
-        <div style={{ width: "100%", height: "36px", overflow: "hidden", position: "sticky", top: 0, zIndex: 30 }}>
-          <WarpSpeedLogo />
-        </div>
-        <Navigation />
-        <main>{children}</main>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <SiteHeader />
+        <AI8HTMotionBackground /><main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <LegalMarquee />
         <LogoMarquee />

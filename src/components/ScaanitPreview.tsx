@@ -12,7 +12,7 @@ const labels: Record<ScaanitPreviewKind, string> = {
 
 export function ScaanitPreview({ kind = "barcode", compact = false }: { kind?: ScaanitPreviewKind; compact?: boolean }) {
   return (
-    <figure className={compact ? `${styles.preview} ${styles.compact}` : styles.preview}>
+    <figure data-product-demo="true" className={compact ? `${styles.preview} ${styles.compact}` : styles.preview}>
       <div className={styles.phone} role="img" aria-label={`Illustrative Scaanit ${labels[kind].toLowerCase()} screen; not a real application screenshot or product result.`}>
         <div className={styles.speaker} aria-hidden="true" />
         <div className={styles.screen} aria-hidden="true">

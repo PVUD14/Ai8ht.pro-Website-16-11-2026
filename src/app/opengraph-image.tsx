@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "AI8HT: Cybersecurity, Compliance, Operations & AI-Enabled Automation";
+export const alt = "AI8HT: Practical Technology for People and Organizations";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,10 +29,10 @@ export default async function OpengraphImage() {
         <img src={logoSrc} width={330} height={160} alt="" style={{ objectFit: "contain" }} />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.12, maxWidth: 1000 }}>
-            Cybersecurity, Compliance, Operations & AI-Enabled Automation
+            Practical Technology for People and Organizations
           </div>
           <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: "#495e6f" }}>
-            Practical, secure, automation-first digital capabilities
+            Services and digital products for everyday progress
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", fontSize: 28, fontWeight: 600 }}>

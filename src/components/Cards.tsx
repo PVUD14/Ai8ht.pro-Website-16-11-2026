@@ -78,7 +78,7 @@ export function OutcomeCard({ item, delay = 0 }: { item: Outcome; delay?: number
   );
 }
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 export function ServiceLinkCard({
   page,

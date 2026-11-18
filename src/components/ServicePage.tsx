@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 
 type ServicePageProps = {
   page: {
+    slug: string;
     eyebrow: string;
     title: string;
     summary: string;
@@ -25,6 +26,13 @@ type ServicePageProps = {
   };
 };
 
+const relatedServices: Record<string, { label: string; href: string }[]> = {
+  "enterprise-operations": [{ label: "TicketX for IT service requests", href: "/ticketx" }, { label: "ONE for campus placements", href: "/one" }],
+  "cybersecurity-assessment": [{ label: "Security Monitoring", href: "/security-operations" }, { label: "Compliance & Training", href: "/compliance-training" }],
+  "security-operations": [{ label: "Security Checks", href: "/cybersecurity-assessment" }, { label: "ScamsDada", href: "/scams-dada" }],
+  "compliance-training": [{ label: "Security Checks", href: "/cybersecurity-assessment" }, { label: "AI8HT Whitepaper", href: "/whitepaper" }],
+  "ai-analytics": [{ label: "Business Operations", href: "/enterprise-operations" }, { label: "All capabilities", href: "/capabilities" }]
+};
 export function ServicePage({ page }: ServicePageProps) {
   return (
     <>
@@ -35,25 +43,25 @@ export function ServicePage({ page }: ServicePageProps) {
         icon={page.services[0]?.icon ?? "shieldCheck"}
         image={page.image}
       />
-      <section className={`section service-section accent-${page.accent}`}>
+      <section id="page-details" className={`section service-section accent-${page.accent}`}>
         <Reveal>
           <div className="section-heading">
             <p className="eyebrow">Service portfolio</p>
-            <h2>Capabilities built for practical outcomes</h2>
+            <h2>How we can help</h2>
           </div>
         </Reveal>
-        <div className="service-grid">
+        <div className="service-directory"><nav aria-label="Service capabilities">{page.services.map((service,index) => <a key={service.title} href={`#service-detail-${index}`}><span className="side-nav-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{service.title}</span></a>)}</nav><div className="service-grid">
           {page.services.map((service, index) => (
-            <ServiceCard key={service.title} item={service} delay={index * 70} />
+            <div id={`service-detail-${index}`} key={service.title} style={{ scrollMarginTop: 100 }}><ServiceCard item={service} delay={index * 70} /></div>
           ))}
         </div>
-        {page.note ? <div className="note-panel glass-panel">{page.note}</div> : null}
+        </div>{page.note ? <div className="note-panel glass-panel">{page.note}</div> : null}
       </section>
       <section className="section">
         <Reveal>
           <div className="section-heading centered">
-            <p className="eyebrow">What organizations gain</p>
-            <h2>Clearer visibility, stronger execution, and usable controls.</h2>
+            <p className="eyebrow">Benefits for your team</p>
+            <h2>What this helps you do</h2>
           </div>
         </Reveal>
         <div className="outcome-grid">
@@ -62,7 +70,7 @@ export function ServicePage({ page }: ServicePageProps) {
           ))}
         </div>
       </section>
-      <ContactCta />
+      <ContactCta related={relatedServices[page.slug]} />
     </>
   );
 }

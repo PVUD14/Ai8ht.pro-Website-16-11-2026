@@ -1,77 +1,17 @@
 "use client";
-
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-export type PageData = {
-  id: string;
-  title: string;
-  content: React.ReactNode;
-};
-
+export type PageData = { id: string; title: string; content: React.ReactNode };
 export function StackedPages({ pages }: { pages: PageData[] }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  return (
-    <div className="stacked-pages-container">
-      <div className="stacked-pages-flex">
-        {pages.map((page, index) => {
-          const isActive = index === activeIndex;
-
-          return (
-            <motion.div
-              key={page.id}
-              layout
-              className={`stacked-page-flex glass-panel ${isActive ? "active" : ""}`}
-              onMouseEnter={() => setActiveIndex(index)}
-              style={{
-                zIndex: isActive ? 10 : pages.length - index,
-                cursor: isActive ? "default" : "pointer"
-              }}
-              animate={{
-                flex: isActive ? 10 : 1,
-                backgroundColor: isActive ? "rgba(255, 255, 255, 0.95)" : "rgba(240, 248, 255, 0.85)"
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              <AnimatePresence mode="wait">
-                {!isActive ? (
-                  <motion.div 
-                    key="collapsed-title"
-                    className="stacked-page-short-title"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {page.title}
-                  </motion.div>
-                ) : (
-                  <motion.div 
-                    key="expanded-content"
-                    className="stacked-page-expanded"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                  >
-                    <div className="stacked-page-header-flex">
-                      <h3>{page.title}</h3>
-                      <div className="page-indicator">
-                        {index + 1} / {pages.length}
-                      </div>
-                    </div>
-                    
-                    <div className="content-inner-flex">
-                      {page.content}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
-      </div>
-    </div>
-  );
+  const [active, setActive] = useState(0);
+  return <div className="resource-reader">
+    <nav aria-label="Whitepaper chapters" className="reader-index">
+      <p className="eyebrow">In this whitepaper</p>
+      {pages.map((page, index) => <button key={page.id} type="button" aria-current={active === index ? "true" : undefined} aria-controls="reader-content" onClick={() => setActive(index)}><span className="side-nav-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{page.title}</span></button>)}
+    </nav>
+    <article id="reader-content" className="reader-content" aria-labelledby="reader-title" aria-live="polite">
+      <p className="eyebrow">Chapter {active + 1} of {pages.length}</p><h2 id="reader-title">{pages[active].title}</h2>
+      {pages[active].content}
+      <div className="reader-controls"><button className="button ghost" disabled={active === 0} onClick={() => setActive(active - 1)}>Previous</button><button className="button ghost" disabled={active === pages.length - 1} onClick={() => setActive(active + 1)}>Next chapter</button></div>
+    </article>
+  </div>;
 }
