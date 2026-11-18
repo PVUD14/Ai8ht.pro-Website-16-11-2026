@@ -1,0 +1,66 @@
+/* Lightweight bubble feedback for actions, with no pointer-tracking scripts. */
+.page-transition {
+  animation: page-arrive 480ms cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes page-arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { animation: none; }
+}
+
+:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 16% 85%, #8cdcff55 0 10px, transparent 11px),
+    radial-gradient(circle at 78% 65%, #96a4ff44 0 17px, transparent 18px),
+    radial-gradient(circle at 48% 110%, #75baff55 0 24px, transparent 25px);
+  opacity: 0;
+  transform: translateY(18px) scale(.85);
+  transition: opacity 220ms ease, transform 420ms cubic-bezier(.2,.8,.2,1);
+}
+
+header nav > a, header nav summary { border-radius: 8px; }
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px #62b5ff22, inset 0 0 0 1px #91cfff33;
+  }
+  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):hover::after {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+
+:is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a):not(:disabled):active {
+  transform: scale(.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a),
+  :is(.button, header nav a, header nav summary, .reader-index button, .service-directory > nav a, section[aria-labelledby="home-title"] a)::after {
+    transition: none;
+    transform: none !important;
+  }
+}

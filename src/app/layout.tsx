@@ -9,6 +9,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 import "./navy-home.css";
 import "./design-system.css";
+import "./interaction-effects.css";
 import { AI8HTMotionBackground } from "@/components/AI8HTMotionBackground";
 
 const HOME_TITLE = "AI8HT | Practical Technology for People and Organizations";
